@@ -125,10 +125,15 @@ bool NoFUSSClientClass::_checkUpdates() {
         _doCallback(NOFUSS_UPTODATE);
         return false;
     }
-
+#if ARUINOJSON_6
+    _newVersion = response["version"];
+    _newFileSystem = response["spiffs"];
+    _newFirmware = response["firmware"];
+#else
     _newVersion = response.get<String>("version");
     _newFileSystem = response.get<String>("spiffs");
     _newFirmware = response.get<String>("firmware");
+#endif
 
     _doCallback(NOFUSS_UPDATING);
     return true;
