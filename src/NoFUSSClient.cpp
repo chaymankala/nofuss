@@ -100,7 +100,7 @@ bool NoFUSSClientClass::_checkUpdates() {
         return false;
     }
 #if ARUINOJSON_6
-    StaticJsonBuffer<500> jsonBuffer;
+    StaticJsonDocument<500> jsonBuffer;
     JsonObject response = jsonBuffer.parseObject(payload);
 #else
     StaticJsonBuffer<500> jsonBuffer;
