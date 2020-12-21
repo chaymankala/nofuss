@@ -99,9 +99,13 @@ bool NoFUSSClientClass::_checkUpdates() {
         _doCallback(NOFUSS_NO_RESPONSE_ERROR);
         return false;
     }
-
+#if ARUINOJSON_6
+    StaticJsonBuffer<500> jsonBuffer;
+    JsonObject response = jsonBuffer.parseObject(payload);
+#elif
     StaticJsonBuffer<500> jsonBuffer;
     JsonObject& response = jsonBuffer.parseObject(payload);
+#endif
 
     if (!response.success()) {
         _doCallback(NOFUSS_PARSE_ERROR);
