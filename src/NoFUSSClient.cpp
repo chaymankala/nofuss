@@ -126,9 +126,9 @@ bool NoFUSSClientClass::_checkUpdates() {
         return false;
     }
 #if ARUINOJSON_6
-    _newVersion = response["version"];
-    _newFileSystem = response["spiffs"];
-    _newFirmware = response["firmware"];
+    _newVersion = String(response["version"]);
+    _newFileSystem = String(response["spiffs"]);
+    _newFirmware = String(response["firmware"]);
 #else
     _newVersion = response.get<String>("version");
     _newFileSystem = response.get<String>("spiffs");
