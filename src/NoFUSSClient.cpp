@@ -100,7 +100,7 @@ bool NoFUSSClientClass::_checkUpdates() {
         return false;
     }
     bool failed = false;
-#if ARUINOJSON_6
+#if ARDUINOJSON_VERSION_MAJOR == 6
     StaticJsonDocument<500> response;
     auto error = deserializeJson(response, payload);
     if(error){
@@ -125,7 +125,7 @@ bool NoFUSSClientClass::_checkUpdates() {
         _doCallback(NOFUSS_UPTODATE);
         return false;
     }
-#if ARUINOJSON_6
+#if ARDUINOJSON_VERSION_MAJOR == 6
     _newVersion = String(response["version"].as<char *>());
     _newFileSystem = String(response["spiffs"].as<char *>());
     _newFirmware = String(response["firmware"].as<char *>());

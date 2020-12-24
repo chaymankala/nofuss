@@ -21,8 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef _NOFUSS_h
 #define _NOFUSS_h
 
-#ifndef ARUINOJSON_6
-#define ARUINOJSON_6 0
+#ifndef ARDUINOJSON_VERSION_MAJOR
+#define ARDUINOJSON_VERSION_MAJOR 5
 #endif
 
 #include <functional>
